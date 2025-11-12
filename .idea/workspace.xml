@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09047332-1aca-4c5c-ae3d-4c4405804457" name="Changes" comment="Первый коммит">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/controller/PizzaController.java" afterDir="false" />
+    <list default="true" id="09047332-1aca-4c5c-ae3d-4c4405804457" name="Changes" comment="Второй коммит">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/controller/PizzaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/controller/PizzaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/exception/ExceptionResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/exception/ExceptionResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/exception/GlobalException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/exception/GlobalException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/mapper/PizzaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/mapper/PizzaMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +43,9 @@
   }
 }</component>
   <component name="GradleModuleStateConfig" initialized="true" />
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/resources/application.properties" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -51,6 +59,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot Application.PizzaAppApplication.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
   }
@@ -81,7 +90,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762825309283</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Второй коммит">
+      <option name="closed" value="true" />
+      <created>1762972418444</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1762972418444</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -90,6 +107,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Первый коммит" />
-    <option name="LAST_COMMIT_MESSAGE" value="Первый коммит" />
+    <MESSAGE value="Второй коммит" />
+    <option name="LAST_COMMIT_MESSAGE" value="Второй коммит" />
   </component>
 </project>

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class PizzaMapper {
 
-    public static Pizza toEntity(PizzaRequestDto dto){
+    public static Pizza toEntity(PizzaRequestDto dto) {
         return Pizza.builder()
                 .name(dto.getName())
                 .descriptions(dto.getDescriptions())
@@ -16,7 +16,7 @@ public class PizzaMapper {
                 .build();
     }
 
-    public static PizzaResponseDto toDto(Pizza pizza){
+    public static PizzaResponseDto toDto(Pizza pizza) {
         return PizzaResponseDto.builder()
                 .name(pizza.getName())
                 .descriptions(pizza.getDescriptions())
