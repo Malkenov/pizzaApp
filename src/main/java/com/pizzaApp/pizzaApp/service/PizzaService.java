@@ -8,9 +8,15 @@ import com.pizzaApp.pizzaApp.mapper.PizzaMapper;
 import com.pizzaApp.pizzaApp.mapper.PizzaPatchMapper;
 import com.pizzaApp.pizzaApp.repository.PizzaRepository;
 import lombok.AllArgsConstructor;
+
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.RequestToViewNameTranslator;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 
 import java.util.List;
 
@@ -23,7 +29,7 @@ public class PizzaService {
 
     private final RequestToViewNameTranslator requestToViewNameTranslator;
 
-    @Transactional
+
     public PizzaResponseDto postPizza(PizzaRequestDto dto) {
         Pizza pizza = PizzaMapper.toEntity(dto);
         pizzaRepository.save(pizza);
@@ -43,7 +49,14 @@ public class PizzaService {
         return PizzaMapper.toDto(pizza);
     }
 
-    @Transactional
+    public Page<PizzaResponseDto> getPizzaByPage(int page,int size,String sortBy){
+        Pageable pageable = PageRequest.of(page,size, Sort.by(sortBy));
+        return pizzaRepository.findAll(pageable)
+                .map(PizzaMapper::toDto);
+    }
+
+
+
     public PizzaResponseDto updatePizza(String name, PizzaRequestDto dto) {
         Pizza pizza = pizzaRepository.findByName(name)
                 .orElseThrow(() -> new NotFoundException("Пиццу под названием " + name + " не удалось найти!"));
@@ -52,7 +65,7 @@ public class PizzaService {
         return PizzaMapper.toDto(pizza);
     }
 
-    @Transactional
+
     public void deletePizza(String name) {
         if (!pizzaRepository.existsByName(name)) {
             throw new NotFoundException("Не удалось найти пиццу под названием " + name);

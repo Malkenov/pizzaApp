@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09047332-1aca-4c5c-ae3d-4c4405804457" name="Changes" comment="Второй коммит">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/controller/PizzaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/controller/PizzaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/exception/ExceptionResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/exception/ExceptionResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/exception/GlobalException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/exception/GlobalException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/mapper/PizzaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/mapper/PizzaMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-    </list>
+    <list default="true" id="09047332-1aca-4c5c-ae3d-4c4405804457" name="Changes" comment="Третий коммит" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -98,7 +90,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762972418444</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Третий коммит">
+      <option name="closed" value="true" />
+      <created>1762977132755</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1762977132755</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -108,6 +108,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Первый коммит" />
     <MESSAGE value="Второй коммит" />
-    <option name="LAST_COMMIT_MESSAGE" value="Второй коммит" />
+    <MESSAGE value="Третий коммит" />
+    <option name="LAST_COMMIT_MESSAGE" value="Третий коммит" />
   </component>
 </project>

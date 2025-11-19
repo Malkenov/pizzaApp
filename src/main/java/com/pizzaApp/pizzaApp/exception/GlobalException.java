@@ -1,5 +1,6 @@
 package com.pizzaApp.pizzaApp.exception;
 
+import org.springframework.data.mapping.PropertyReferenceException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -23,6 +24,11 @@ public class GlobalException {
                 HttpStatus.BAD_REQUEST,
                 ex.getMessage()
         );
-        return new ResponseEntity<>(exception, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(exception, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(PropertyReferenceException.class)
+    public void PropertyReference(PropertyReferenceException ex){
+        throw new NotFoundException("Передан неверный параметр сортировки " + ex.getPropertyName());
     }
 }
