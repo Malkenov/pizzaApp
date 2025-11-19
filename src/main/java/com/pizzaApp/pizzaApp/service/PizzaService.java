@@ -26,35 +26,35 @@ public class PizzaService {
 
     private final PizzaRepository pizzaRepository;
     private final PizzaPatchMapper pizzaPatchMapper;
+    private final PizzaMapper pizzaMapper;
 
     private final RequestToViewNameTranslator requestToViewNameTranslator;
 
 
     public PizzaResponseDto postPizza(PizzaRequestDto dto) {
-        Pizza pizza = PizzaMapper.toEntity(dto);
+        Pizza pizza = pizzaMapper.toEntity(dto);
         pizzaRepository.save(pizza);
-        return PizzaMapper.toDto(pizza);
+        return pizzaMapper.toDto(pizza);
     }
 
     public List<PizzaResponseDto> getAllPizza() {
         return pizzaRepository.findAll()
                 .stream()
-                .map(PizzaMapper::toDto)
+                .map(pizzaMapper::toDto)
                 .toList();
     }
 
     public PizzaResponseDto getByName(String name) {
         Pizza pizza = pizzaRepository.findByName(name)
                 .orElseThrow(() -> new RuntimeException("Пиццу под названием " + name + " не удалось найти!"));
-        return PizzaMapper.toDto(pizza);
+        return pizzaMapper.toDto(pizza);
     }
 
     public Page<PizzaResponseDto> getPizzaByPage(int page,int size,String sortBy){
         Pageable pageable = PageRequest.of(page,size, Sort.by(sortBy));
         return pizzaRepository.findAll(pageable)
-                .map(PizzaMapper::toDto);
+                .map(pizzaMapper::toDto);
     }
-
 
 
     public PizzaResponseDto updatePizza(String name, PizzaRequestDto dto) {
@@ -62,7 +62,7 @@ public class PizzaService {
                 .orElseThrow(() -> new NotFoundException("Пиццу под названием " + name + " не удалось найти!"));
         pizzaPatchMapper.updatePizzaFromDto(dto, pizza);
         pizzaRepository.save(pizza);
-        return PizzaMapper.toDto(pizza);
+        return pizzaMapper.toDto(pizza);
     }
 
 
