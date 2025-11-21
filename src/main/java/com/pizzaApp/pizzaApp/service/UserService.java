@@ -9,25 +9,28 @@ import com.pizzaApp.pizzaApp.mapper.UserMapper;
 import com.pizzaApp.pizzaApp.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
 @AllArgsConstructor
-@NoArgsConstructor
 @Service
 public class UserService {
 
-    private UserRepository userRepository;
-    private UserMapper userMapper;
+    private final UserRepository userRepository;
+    private final UserMapper userMapper;
+    private final PasswordEncoder passwordEncoder;
 
 
     public UserResponseDto createUser(UserRequestDto dto){
-        User user = userMapper.toEntity(dto);
-
         userRepository.findByEmail(dto.getEmail())
                 .ifPresent(u -> {
             throw new BadRequestException("Пользователь с таким " + dto.getEmail() + "существует");
         });
+        User user = userMapper.toEntity(dto);
+
+        user.setPassword(passwordEncoder.encode(dto.getPassword()));
+
         userRepository.save(user);
         return userMapper.toDto(user);
     }

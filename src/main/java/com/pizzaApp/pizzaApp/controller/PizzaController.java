@@ -14,11 +14,12 @@ import java.util.List;
 
 @Validated
 @AllArgsConstructor
+
 @RestController
 @RequestMapping("/pizza")
 public class PizzaController {
 
-    private PizzaService pizzaService;
+    private final PizzaService pizzaService;
 
 
     @PostMapping
@@ -26,7 +27,7 @@ public class PizzaController {
         return ResponseEntity.ok(pizzaService.postPizza(dto));
     }
 
-    @GetMapping
+    @GetMapping("/{all}")
     public ResponseEntity<List<PizzaResponseDto>> getAllPizza() {
         return ResponseEntity.ok(pizzaService.getAllPizza());
     }
