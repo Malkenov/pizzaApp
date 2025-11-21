@@ -38,8 +38,8 @@ public class PizzaController {
 
     @GetMapping
     public ResponseEntity<Page<PizzaResponseDto>> getPizzaByPage(
-            @RequestParam(defaultValue = "1") @Min(1) int page,
-            @RequestParam(defaultValue = "5") @Min(5) int size,
+            @RequestParam(defaultValue = "0") @Min(0) int page,
+            @RequestParam(defaultValue = "5") @Min(1) int size,
             @RequestParam(defaultValue = "id") String sort
     ){
         return ResponseEntity.ok(pizzaService.getPizzaByPage(page,size,sort));

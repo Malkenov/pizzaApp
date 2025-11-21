@@ -17,5 +17,6 @@ public class ExceptionResponse {
     public ExceptionResponse(HttpStatus httpStatus, String name) {
         this.message = message;
         this.httpStatus = httpStatus;
+        this.dateTime = LocalDateTime.now();
     }
 }
