@@ -41,4 +41,17 @@ public class UserService {
         }
         userRepository.deleteByEmail(email);
     }
+
+
+    public UserResponseDto login(UserRequestDto dto) {
+
+        User user = userRepository.findByEmail(dto.getEmail())
+                .orElseThrow(() -> new BadRequestException("Пользователь не найден"));
+
+        if (!passwordEncoder.matches(dto.getPassword(), user.getPassword())) {
+            throw new BadRequestException("Неверный пароль");
+        }
+
+        return new UserResponseDto(user.getEmail(), user.getName());
+    }
 }
