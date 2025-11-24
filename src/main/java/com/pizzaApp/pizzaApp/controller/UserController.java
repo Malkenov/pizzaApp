@@ -25,9 +25,4 @@ public class UserController {
     public ResponseEntity<Void> deleteUser(@PathVariable String email){
         return ResponseEntity.noContent().build();
     }
-
-    @PostMapping("/login")
-    public UserResponseDto login(@RequestBody UserRequestDto dto) {
-        return userService.login(dto);
-    }
 }
