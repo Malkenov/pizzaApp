@@ -14,10 +14,11 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable) // отключаем CSRF
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/users/login").permitAll() // публичная регистрация
+                        .requestMatchers("/users/login", "/users/register").permitAll() // публичная регистрация
                         .anyRequest().authenticated() // остальные эндпоинты защищены
                 )
                 .httpBasic(AbstractHttpConfigurer::disable); // базовую аутентификацию можно включить через DSL
         return http.build();
     }
+
 }

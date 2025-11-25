@@ -26,6 +26,7 @@ public class UserController {
         return ResponseEntity.ok(userService.login(dto));
     }
 
+
     @DeleteMapping("/{email}")
     public ResponseEntity<Void> deleteUser(@PathVariable String email){
         userService.deleteUser(email);

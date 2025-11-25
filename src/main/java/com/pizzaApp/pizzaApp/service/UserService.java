@@ -8,7 +8,6 @@ import com.pizzaApp.pizzaApp.exception.NotFoundException;
 import com.pizzaApp.pizzaApp.mapper.UserMapper;
 import com.pizzaApp.pizzaApp.repository.UserRepository;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -35,6 +34,18 @@ public class UserService {
         return userMapper.toDto(user);
     }
 
+
+    public UserResponseDto login(UserRequestDto dto) {
+
+        User user = userRepository.findByEmail(dto.getEmail())
+                .orElseThrow(() -> new BadRequestException("Пользователь не найден"));
+        if (!passwordEncoder.matches(dto.getPassword(), user.getPassword())) {
+            throw new BadRequestException("Неверный пароль");
+        }
+        return new UserResponseDto(user.getEmail(), user.getName());
+    }
+
+
     public void deleteUser(String email){
         if(!userRepository.existsByEmail(email)){
             throw new NotFoundException("Пользователь с " + email + "не найден");
@@ -42,16 +53,4 @@ public class UserService {
         userRepository.deleteByEmail(email);
     }
 
-
-    public UserResponseDto login(UserRequestDto dto) {
-
-        User user = userRepository.findByEmail(dto.getEmail())
-                .orElseThrow(() -> new BadRequestException("Пользователь не найден"));
-
-        if (!passwordEncoder.matches(dto.getPassword(), user.getPassword())) {
-            throw new BadRequestException("Неверный пароль");
-        }
-
-        return new UserResponseDto(user.getEmail(), user.getName());
-    }
 }
