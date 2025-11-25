@@ -21,8 +21,14 @@ public class UserController {
         return ResponseEntity.ok(userService.createUser(dto));
     }
 
+    @PostMapping("/login")
+    public ResponseEntity<UserResponseDto> login(@RequestBody @Validated UserRequestDto dto){
+        return ResponseEntity.ok(userService.login(dto));
+    }
+
     @DeleteMapping("/{email}")
     public ResponseEntity<Void> deleteUser(@PathVariable String email){
+        userService.deleteUser(email);
         return ResponseEntity.noContent().build();
     }
 }

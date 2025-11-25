@@ -13,11 +13,4 @@ public class PizzaAppApplication {
         SpringApplication.run(PizzaAppApplication.class, args);
 
     }
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
-
 }
