@@ -1,5 +1,6 @@
 package com.pizzaApp.pizzaApp.config;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -12,34 +13,25 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        // SecurityFilterChain - это цепочка фильтров безопасности, для обработки каждого HTTP-запроса
         http
-                .csrf(AbstractHttpConfigurer::disable) // отключаем CSRF
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/users/login", "/users/register").permitAll() // публичная регистрация
-                        .anyRequest().authenticated() // остальные эндпоинты защищены
+                .csrf(AbstractHttpConfigurer::disable) // отключаем csrf - защиту
+                .authorizeHttpRequests(auth -> auth    // описание, какие URL не требуют доступ
+                        .requestMatchers("/users/login", "/users/register").permitAll()
+                        .anyRequest().authenticated()  // остальные URL требуют доступ
                 )
-                .httpBasic(AbstractHttpConfigurer::disable); // базовую аутентификацию можно включить через DSL
-        return http.build();
-    }
-
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
-                .csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/login", "/register").permitAll()
-                        .anyRequest().authenticated()
+                .formLogin(from -> from
+                        .loginPage("/users/login")     // блок кода, где описано, в каком URL будет логирование
+                        .defaultSuccessUrl("/home",true)
                 )
-                .formLogin(form -> form
-                        .loginPage("/login")
-                        .defaultSuccessUrl("/home", true)
-                )
-                .sessionManagement(session -> session
+                .sessionManagement(session -> session  // создается сессия только при успешном авторизации (создается cookie)
                         .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
-                );
+                )
+                .httpBasic(AbstractHttpConfigurer::disable);
 
         return http.build();
     }
+
 }
 
 
