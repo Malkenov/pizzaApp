@@ -27,6 +27,11 @@ public class SecurityConfig {
                 .sessionManagement(session -> session  // создается сессия только при успешном авторизации (создается cookie)
                         .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
                 )
+                .logout(logout -> logout
+                        .logoutUrl("/users/logout")
+                        .invalidateHttpSession(true)
+                        .deleteCookies("JSESSIONID")
+                )
                 .httpBasic(AbstractHttpConfigurer::disable);
 
         return http.build();
