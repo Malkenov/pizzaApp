@@ -15,14 +15,10 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         // SecurityFilterChain - это цепочка фильтров безопасности, для обработки каждого HTTP-запроса
         http
-                .csrf(AbstractHttpConfigurer::disable) // отключаем csrf - защиту
+                .csrf(AbstractHttpConfigurer::disable) // отключаем csrf - защиту от поддельных запросов из браузера
                 .authorizeHttpRequests(auth -> auth    // описание, какие URL не требуют доступ
                         .requestMatchers("/users/login", "/users/register").permitAll()
                         .anyRequest().authenticated()  // остальные URL требуют доступ
-                )
-                .formLogin(from -> from
-                        .loginPage("/users/login")     // блок кода, где описано, в каком URL будет логирование
-                        .defaultSuccessUrl("/home",true)
                 )
                 .sessionManagement(session -> session  // создается сессия только при успешном авторизации (создается cookie)
                         .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
