@@ -3,9 +3,12 @@ package com.pizzaApp.pizzaApp.controller;
 import com.pizzaApp.pizzaApp.dto.request.PizzaRequestDto;
 import com.pizzaApp.pizzaApp.dto.response.PizzaResponseDto;
 import com.pizzaApp.pizzaApp.service.PizzaService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -23,18 +26,35 @@ public class PizzaController {
 
 
     @PostMapping
-    public ResponseEntity<PizzaResponseDto> postPizza(@RequestBody @Validated PizzaRequestDto dto) {
-        return ResponseEntity.ok(pizzaService.postPizza(dto));
+    public ResponseEntity<PizzaResponseDto> postPizza(
+            @RequestBody @Validated PizzaRequestDto dto,
+            HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        if(session == null || session.getAttribute("userEmail") == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+        String email = (String) session.getAttribute("userEmail");
+        return ResponseEntity.ok(pizzaService.postPizza(dto,email));
     }
 
     @GetMapping("/{all}")
-    public ResponseEntity<List<PizzaResponseDto>> getAllPizza() {
-        return ResponseEntity.ok(pizzaService.getAllPizza());
+    public ResponseEntity<List<PizzaResponseDto>> getAllPizza(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        if(session == null || session.getAttribute("userEmail") == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+        String email = (String) session.getAttribute("userEmail");
+        return ResponseEntity.ok(pizzaService.getAllPizza(email));
     }
 
     @GetMapping("/{name}")
-    public ResponseEntity<PizzaResponseDto> getByName(@PathVariable String name) {
-        return ResponseEntity.ok(pizzaService.getByName(name));
+    public ResponseEntity<PizzaResponseDto> getByName(@PathVariable String name,HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        if(session == null || session.getAttribute("userEmail") == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+        String email = (String) session.getAttribute("userEmail");
+        return ResponseEntity.ok(pizzaService.getByName(name,email));
     }
 
     @GetMapping
@@ -47,8 +67,16 @@ public class PizzaController {
     }
 
     @PatchMapping("/{name}")
-    public ResponseEntity<PizzaResponseDto> updatePizza(@PathVariable String name, @RequestBody PizzaRequestDto dto) {
-        return ResponseEntity.ok(pizzaService.updatePizza(name, dto));
+    public ResponseEntity<PizzaResponseDto> updatePizza(
+            @PathVariable String name,
+            @RequestBody PizzaRequestDto dto,
+            HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        if(session == null || session.getAttribute("userEmail") == null){
+            ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+        String email = (String) session.getAttribute("userEmail");
+        return ResponseEntity.ok(pizzaService.updatePizza(name, dto, email));
     }
 
     @DeleteMapping("/{name}")

@@ -31,20 +31,20 @@ public class PizzaService {
     private final RequestToViewNameTranslator requestToViewNameTranslator;
 
 
-    public PizzaResponseDto postPizza(PizzaRequestDto dto) {
+    public PizzaResponseDto postPizza(PizzaRequestDto dto,String email) {
         Pizza pizza = pizzaMapper.toEntity(dto);
         pizzaRepository.save(pizza);
         return pizzaMapper.toDto(pizza);
     }
 
-    public List<PizzaResponseDto> getAllPizza() {
+    public List<PizzaResponseDto> getAllPizza(String email) {
         return pizzaRepository.findAll()
                 .stream()
                 .map(pizzaMapper::toDto)
                 .toList();
     }
 
-    public PizzaResponseDto getByName(String name) {
+    public PizzaResponseDto getByName(String name,String email) {
         Pizza pizza = pizzaRepository.findByName(name)
                 .orElseThrow(() -> new RuntimeException("Пиццу под названием " + name + " не удалось найти!"));
         return pizzaMapper.toDto(pizza);
@@ -57,7 +57,7 @@ public class PizzaService {
     }
 
 
-    public PizzaResponseDto updatePizza(String name, PizzaRequestDto dto) {
+    public PizzaResponseDto updatePizza(String name, PizzaRequestDto dto,String email) {
         Pizza pizza = pizzaRepository.findByName(name)
                 .orElseThrow(() -> new NotFoundException("Пиццу под названием " + name + " не удалось найти!"));
         pizzaPatchMapper.updatePizzaFromDto(dto, pizza);
