@@ -3,10 +3,12 @@ package com.pizzaApp.pizzaApp.service;
 import com.pizzaApp.pizzaApp.dto.request.PizzaRequestDto;
 import com.pizzaApp.pizzaApp.dto.response.PizzaResponseDto;
 import com.pizzaApp.pizzaApp.entity.Pizza;
+import com.pizzaApp.pizzaApp.entity.User;
 import com.pizzaApp.pizzaApp.exception.NotFoundException;
 import com.pizzaApp.pizzaApp.mapper.PizzaMapper;
 import com.pizzaApp.pizzaApp.mapper.PizzaPatchMapper;
 import com.pizzaApp.pizzaApp.repository.PizzaRepository;
+import com.pizzaApp.pizzaApp.repository.UserRepository;
 import lombok.AllArgsConstructor;
 
 import org.springframework.data.domain.PageRequest;
@@ -27,26 +29,30 @@ public class PizzaService {
     private final PizzaRepository pizzaRepository;
     private final PizzaPatchMapper pizzaPatchMapper;
     private final PizzaMapper pizzaMapper;
-
-    private final RequestToViewNameTranslator requestToViewNameTranslator;
+    private final UserRepository userRepository;
 
 
     public PizzaResponseDto postPizza(PizzaRequestDto dto,String email) {
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(()-> new NotFoundException("Пользователь не найден!"));
         Pizza pizza = pizzaMapper.toEntity(dto);
+        pizza.setUser(user);
         pizzaRepository.save(pizza);
         return pizzaMapper.toDto(pizza);
     }
 
     public List<PizzaResponseDto> getAllPizza(String email) {
-        return pizzaRepository.findAll()
+        return pizzaRepository.findByUserEmail(email)
                 .stream()
                 .map(pizzaMapper::toDto)
                 .toList();
     }
 
     public PizzaResponseDto getByName(String name,String email) {
-        Pizza pizza = pizzaRepository.findByName(name)
-                .orElseThrow(() -> new RuntimeException("Пиццу под названием " + name + " не удалось найти!"));
+        Pizza pizza = pizzaRepository.findByNameAndUserEmail(name, email)
+                .orElseThrow(() ->
+                        new RuntimeException("Пиццу под названием " + name + " не удалось найти у данного пользователя!")
+                );
         return pizzaMapper.toDto(pizza);
     }
 

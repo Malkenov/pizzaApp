@@ -27,6 +27,10 @@ public class Pizza {
     @Column(name = "Время приготовление")
     private String cookingTime;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
 
     @Override
     public boolean equals(Object obj) {

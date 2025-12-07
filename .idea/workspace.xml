@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09047332-1aca-4c5c-ae3d-4c4405804457" name="Changes" comment="седьмой коммит">
+    <list default="true" id="09047332-1aca-4c5c-ae3d-4c4405804457" name="Changes" comment="восемнадцатый коммит">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/entity/Pizza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/entity/Pizza.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/repository/PizzaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/repository/PizzaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/service/PizzaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/service/PizzaService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +137,95 @@
       <option name="project" value="LOCAL" />
       <updated>1763760663761</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="восьмой коммит">
+      <option name="closed" value="true" />
+      <created>1763840140083</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1763840140083</updated>
+    </task>
+    <task id="LOCAL-00009" summary="девятый коммит">
+      <option name="closed" value="true" />
+      <created>1764010335745</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1764010335745</updated>
+    </task>
+    <task id="LOCAL-00010" summary="десятый коммит">
+      <option name="closed" value="true" />
+      <created>1764090233987</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1764090233987</updated>
+    </task>
+    <task id="LOCAL-00011" summary="одиннадцатый коммит">
+      <option name="closed" value="true" />
+      <created>1764098262369</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1764098262369</updated>
+    </task>
+    <task id="LOCAL-00012" summary="двенадцатый коммит">
+      <option name="closed" value="true" />
+      <created>1764528817934</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1764528817934</updated>
+    </task>
+    <task id="LOCAL-00013" summary="тринадцатый коммит">
+      <option name="closed" value="true" />
+      <created>1764534348199</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1764534348199</updated>
+    </task>
+    <task id="LOCAL-00014" summary="четырнадцатый коммит">
+      <option name="closed" value="true" />
+      <created>1764616060444</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1764616060444</updated>
+    </task>
+    <task id="LOCAL-00015" summary="пятнадцатый коммит">
+      <option name="closed" value="true" />
+      <created>1764787694708</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1764787694708</updated>
+    </task>
+    <task id="LOCAL-00016" summary="шестнадцатый коммит">
+      <option name="closed" value="true" />
+      <created>1764859816489</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1764859816489</updated>
+    </task>
+    <task id="LOCAL-00017" summary="семнадцатый коммит">
+      <option name="closed" value="true" />
+      <created>1765048207498</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1765048207498</updated>
+    </task>
+    <task id="LOCAL-00018" summary="восемнадцатый коммит">
+      <option name="closed" value="true" />
+      <created>1765097255321</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1765097255321</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -151,6 +240,17 @@
     <MESSAGE value="Пятый коммит" />
     <MESSAGE value="шестой коммит" />
     <MESSAGE value="седьмой коммит" />
-    <option name="LAST_COMMIT_MESSAGE" value="седьмой коммит" />
+    <MESSAGE value="восьмой коммит" />
+    <MESSAGE value="девятый коммит" />
+    <MESSAGE value="десятый коммит" />
+    <MESSAGE value="одиннадцатый коммит" />
+    <MESSAGE value="двенадцатый коммит" />
+    <MESSAGE value="тринадцатый коммит" />
+    <MESSAGE value="четырнадцатый коммит" />
+    <MESSAGE value="пятнадцатый коммит" />
+    <MESSAGE value="шестнадцатый коммит" />
+    <MESSAGE value="семнадцатый коммит" />
+    <MESSAGE value="восемнадцатый коммит" />
+    <option name="LAST_COMMIT_MESSAGE" value="восемнадцатый коммит" />
   </component>
 </project>
