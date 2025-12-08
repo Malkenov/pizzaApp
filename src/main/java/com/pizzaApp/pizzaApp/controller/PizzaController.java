@@ -80,8 +80,15 @@ public class PizzaController {
     }
 
     @DeleteMapping("/{name}")
-    public ResponseEntity<Void> removePizza(@PathVariable String name) {
-        pizzaService.deletePizza(name);
+    public ResponseEntity<Void> removePizza(
+            @PathVariable String name,
+            HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        if(session == null || session.getAttribute("userEmail") == null){
+           return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+        String email = (String) session.getAttribute("userEmail");
+        pizzaService.deletePizza(name,email);
         return ResponseEntity.noContent().build();
     }
 }

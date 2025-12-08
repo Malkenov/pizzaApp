@@ -64,18 +64,24 @@ public class PizzaService {
 
 
     public PizzaResponseDto updatePizza(String name, PizzaRequestDto dto,String email) {
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(()-> new NotFoundException("Пользователь не найден!"));
         Pizza pizza = pizzaRepository.findByName(name)
                 .orElseThrow(() -> new NotFoundException("Пиццу под названием " + name + " не удалось найти!"));
+        pizza.setUser(user);
         pizzaPatchMapper.updatePizzaFromDto(dto, pizza);
         pizzaRepository.save(pizza);
         return pizzaMapper.toDto(pizza);
     }
 
 
-    public void deletePizza(String name) {
+    public void deletePizza(String name,String email) {
         if (!pizzaRepository.existsByName(name)) {
             throw new NotFoundException("Не удалось найти пиццу под названием " + name);
         }
-        pizzaRepository.deleteByName(name);
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new NotFoundException("Нету такого пользователя!"));
+
+        pizzaRepository.deleteByNameAndUserEmail(name,email);
     }
 }

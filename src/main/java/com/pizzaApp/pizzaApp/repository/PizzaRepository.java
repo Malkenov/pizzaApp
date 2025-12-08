@@ -12,7 +12,7 @@ public interface PizzaRepository extends JpaRepository<Pizza, Long> {
 
     boolean existsByName(String name);
 
-    void deleteByName(String name);
+    void deleteByNameAndUserEmail(String name,String email);
 
     List<Pizza> findByUserEmail(String email);
 
