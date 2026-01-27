@@ -4,12 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09047332-1aca-4c5c-ae3d-4c4405804457" name="Changes" comment="восемнадцатый коммит">
+    <list default="true" id="09047332-1aca-4c5c-ae3d-4c4405804457" name="Changes" comment="двадцатый коммит">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/config/ApplicationConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/config/properties/JwtSecurityConfigProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/dto/request/AuthenticationRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/dto/request/RefreshTokenRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/dto/request/RegistrationRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/entity/TokenEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/enums/TokenType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/entity/Pizza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/entity/Pizza.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/repository/PizzaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/repository/PizzaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/service/PizzaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pizzaApp/pizzaApp/service/PizzaService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +26,7 @@
       <list>
         <option value="Exception" />
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -60,7 +66,8 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;Spring Boot Application.PizzaAppApplication.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/asana/Desktop/asanali-jwt-security&quot;
   }
 }</component>
   <component name="RunManager">
@@ -225,7 +232,23 @@
       <option name="project" value="LOCAL" />
       <updated>1765097255321</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="девятнадцатый коммит">
+      <option name="closed" value="true" />
+      <created>1765098362389</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1765098362389</updated>
+    </task>
+    <task id="LOCAL-00020" summary="двадцатый коммит">
+      <option name="closed" value="true" />
+      <created>1765157464181</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1765157464181</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -251,6 +274,8 @@
     <MESSAGE value="шестнадцатый коммит" />
     <MESSAGE value="семнадцатый коммит" />
     <MESSAGE value="восемнадцатый коммит" />
-    <option name="LAST_COMMIT_MESSAGE" value="восемнадцатый коммит" />
+    <MESSAGE value="девятнадцатый коммит" />
+    <MESSAGE value="двадцатый коммит" />
+    <option name="LAST_COMMIT_MESSAGE" value="двадцатый коммит" />
   </component>
 </project>
